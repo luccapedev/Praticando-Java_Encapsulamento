@@ -1,3 +1,9 @@
+package app;
+
+import model.Carro;
+import model.Contato;
+import service.CarroService;
+import service.ContatoService;
 
 import java.util.Scanner;
 
@@ -29,10 +35,42 @@ public class Main {
 
             switch (escolha) {
                 case 1:
-                    System.out.println("Essa funcionalidade não existe no momento!");
+                    scanner.nextLine();
+                    System.out.print("Digite o modelo do carro: ");
+                    String modelo = scanner.nextLine();
+
+                    System.out.print("Digite a placa do carro: ");
+                    String placa = scanner.nextLine();
+
+                    System.out.print("Digite o ano do carro: ");
+                    int ano = scanner.nextInt();
+
+                    Carro carro = new Carro(modelo, placa, ano);
+
+                    CarroService service = new CarroService();
+                    service.exibirInformacoes(carro);
                     break;
                 case 2:
-                    System.out.println("Essa funcionalidade não existe no momento!");
+                    String confirma;
+                    ContatoService contatoService = new ContatoService();
+
+                    do {
+                        scanner.nextLine();
+                        System.out.println("Digite o nome do contato: ");
+                        String nome = scanner.nextLine();
+
+                        System.out.println("Digite o número de telefone do contato: ");
+                        String telefone = scanner.nextLine();
+
+                        Contato contato = new Contato(nome, telefone);
+                        contatoService.adicionarContato(contato);
+                        contatoService.exibirContatos();
+
+                        System.out.println("Deseja adicionar um novo contato? (Sim/Não)");
+                        confirma = scanner.next();
+                    } while (confirma.equalsIgnoreCase("Sim"));
+
+                    System.out.println("Fechando agenda...");
                     break;
                 case 3:
                     System.out.println("Essa funcionalidade não existe no momento!");
