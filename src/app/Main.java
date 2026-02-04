@@ -3,9 +3,11 @@ package app;
 import model.Carro;
 import model.Contato;
 import model.Produto;
+import model.Usuario;
 import service.CarroService;
 import service.ContatoService;
 import service.ProdutoService;
+import service.UsuarioService;
 
 import java.util.Scanner;
 
@@ -89,7 +91,26 @@ public class Main {
                     produtoService.validaProduto(produto);
                     break;
                 case 4:
-                    System.out.println("Essa funcionalidade não existe no momento!");
+                    UsuarioService usuarioService = new UsuarioService();
+                    Usuario usuario = new Usuario();
+
+                    scanner.nextLine();
+
+                    System.out.println("Registre uma senha: ");
+                    usuario.setSenha(scanner.nextLine());
+
+                    System.out.println("Deseja alterar a senha? (Sim/Não)");
+                    confirma = scanner.nextLine();
+                    if (confirma.equalsIgnoreCase("Sim")) {
+                        System.out.println("Digite a sua senha atual para gerar uma nova: ");
+                        String senha = scanner.nextLine();
+
+                        System.out.println("Digite a nova senha: ");
+                        String novaSenha = scanner.nextLine();
+
+                        usuarioService.redefinirSenha(usuario,senha, novaSenha);
+                    }
+
                     break;
                 case 5:
                     System.out.println("Essa funcionalidade não existe no momento!");
