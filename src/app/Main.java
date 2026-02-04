@@ -2,8 +2,10 @@ package app;
 
 import model.Carro;
 import model.Contato;
+import model.Produto;
 import service.CarroService;
 import service.ContatoService;
+import service.ProdutoService;
 
 import java.util.Scanner;
 
@@ -73,7 +75,18 @@ public class Main {
                     System.out.println("Fechando agenda...");
                     break;
                 case 3:
-                    System.out.println("Essa funcionalidade não existe no momento!");
+                    ProdutoService produtoService = new ProdutoService();
+                    scanner.nextLine();
+
+                    System.out.println("Digite o nome do produto: ");
+                    String nome = scanner.nextLine();
+
+                    System.out.println("Digite o preço do produto: ");
+                    double preco = scanner.nextDouble();
+
+                    Produto produto = new Produto(nome, preco);
+
+                    produtoService.validaProduto(produto);
                     break;
                 case 4:
                     System.out.println("Essa funcionalidade não existe no momento!");
