@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContatoService {
-    List<Contato> listaContatos = new ArrayList<>();
+    private List<Contato> listaContatos = new ArrayList<>();
 
     public void adicionarContato(Contato contatos) {
         listaContatos.add(contatos);

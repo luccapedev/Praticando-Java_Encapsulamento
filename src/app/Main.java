@@ -67,7 +67,7 @@ public class Main {
                         contatoService.exibirContatos();
 
                         System.out.println("Deseja adicionar um novo contato? (Sim/Não)");
-                        confirma = scanner.next();
+                        confirma = scanner.nextLine();
                     } while (confirma.equalsIgnoreCase("Sim"));
 
                     System.out.println("Fechando agenda...");
