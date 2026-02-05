@@ -116,7 +116,35 @@ public class Main {
                     bateriaService.verificaStatus(bateria);
                     break;
                 case 6:
-                    System.out.println("Essa funcionalidade não existe no momento!");
+                    SaldoService saldoService = new SaldoService();
+                    scanner.nextLine();
+
+                    System.out.println("Digite o nome do titular da conta: ");
+                    String titular = scanner.nextLine();
+                    Saldo saldo = new Saldo(titular);
+
+                    int confirmaInt = 1;
+                    while (confirmaInt != 0) {
+                        System.out.println("""
+                                1 - Realizar depósito
+                                2 - Realizar saque
+                                3 - Exibir saldo
+                                0 - Sair
+                                """);
+                        confirmaInt = scanner.nextInt();
+
+                        if(confirmaInt == 1) {
+                            System.out.println("Digite o valor que deseja depositar: ");
+                            double valorDeposito = scanner.nextDouble();
+                            saldoService.depositar(saldo, valorDeposito);
+                        } else if (confirmaInt == 2) {
+                            System.out.println("Digite o valor que deseja sacar: ");
+                            double valorSaque = scanner.nextDouble();
+                            saldoService.sacar(saldo, valorSaque);
+                        } else if (confirmaInt == 3) {
+                            saldoService.exibirSaldo(saldo);
+                        }
+                    }
                     break;
                 case 7:
                     System.out.println("Essa funcionalidade não existe no momento!");
