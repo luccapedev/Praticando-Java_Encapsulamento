@@ -1,13 +1,7 @@
 package app;
 
-import model.Carro;
-import model.Contato;
-import model.Produto;
-import model.Usuario;
-import service.CarroService;
-import service.ContatoService;
-import service.ProdutoService;
-import service.UsuarioService;
+import model.*;
+import service.*;
 
 import java.util.Scanner;
 
@@ -110,10 +104,16 @@ public class Main {
 
                         usuarioService.redefinirSenha(usuario,senha, novaSenha);
                     }
-
                     break;
                 case 5:
-                    System.out.println("Essa funcionalidade não existe no momento!");
+                    BateriaService bateriaService = new BateriaService();
+                    Bateria bateria = new Bateria();
+                    scanner.nextLine();
+
+                    System.out.println("Digite o nível da bateria:");
+                    bateria.setNivel(scanner.nextInt());
+
+                    bateriaService.verificaStatus(bateria);
                     break;
                 case 6:
                     System.out.println("Essa funcionalidade não existe no momento!");
