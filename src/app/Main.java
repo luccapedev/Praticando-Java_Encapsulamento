@@ -222,7 +222,7 @@ public class Main {
 
                     System.out.println("Digite o nome do aluno:");
                     aluno = scanner.nextLine();
-                    Pontos pontos = new Pontos(aluno);
+                    Ponto pontos = new Ponto(aluno);
 
                     System.out.println("Quantos pontos deseja adicionar?");
                     quantidade = scanner.nextInt();
@@ -244,7 +244,28 @@ public class Main {
                     pontos.exibirStatus();
                     break;
                 case 10:
-                    System.out.println("Essa funcionalidade não existe no momento!");
+                    scanner.nextLine();
+
+                    System.out.println("Digite o nome da matéria: ");
+                    Nota materia = new Nota(scanner.nextLine());
+
+                    System.out.println("Digite a nota do aluno: ");
+                    materia.adicionarNota(scanner.nextDouble());
+
+                    scanner.nextLine();
+                    System.out.println("Deseja registrar mais notas? (Sim/Não)");
+                    confirma = scanner.nextLine();
+
+                    while (confirma.equalsIgnoreCase("Sim")){
+                        System.out.println("Digite a nota do aluno: ");
+                        materia.adicionarNota(scanner.nextDouble());
+
+                        scanner.nextLine();
+                        System.out.println("Deseja registrar mais notas? (Sim/Não)");
+                        confirma = scanner.nextLine();
+                    }
+
+                    materia.calculaMedia();
                     break;
                 case 0:
                     System.out.println("Saindo do programa...");

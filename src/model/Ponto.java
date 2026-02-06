@@ -1,11 +1,11 @@
 package model;
 
-public class Pontos {
+public class Ponto {
     private String aluno;
     private int status;
     private int soma;
 
-    public Pontos(String aluno) {
+    public Ponto(String aluno) {
         this.aluno = aluno;
     }
 
