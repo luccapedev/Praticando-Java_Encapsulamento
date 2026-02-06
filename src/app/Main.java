@@ -177,7 +177,32 @@ public class Main {
                     System.out.println("Essa funcionalidade não existe no momento!");
                     break;
                 case 9:
-                    System.out.println("Essa funcionalidade não existe no momento!");
+                    String aluno;
+                    int quantidade;
+                    scanner.nextLine();
+
+                    System.out.println("Digite o nome do aluno:");
+                    aluno = scanner.nextLine();
+                    Pontos pontos = new Pontos(aluno);
+
+                    System.out.println("Quantos pontos deseja adicionar?");
+                    quantidade = scanner.nextInt();
+                    pontos.ganharPontos(quantidade);
+
+                    scanner.nextLine();
+                    System.out.println("Deseja adicionar mais pontos? (Sim/Não)");
+                    confirma = scanner.nextLine();
+                    while (confirma.equalsIgnoreCase("Sim")){
+                        System.out.println("Quantos pontos deseja adicionar?");
+                        quantidade = scanner.nextInt();
+                        pontos.ganharPontos(quantidade);
+
+                        scanner.nextLine();
+                        System.out.println("Deseja adicionar mais pontos? (Sim/Não)");
+                        confirma = scanner.nextLine();
+                    }
+
+                    pontos.exibirStatus();
                     break;
                 case 10:
                     System.out.println("Essa funcionalidade não existe no momento!");
