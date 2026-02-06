@@ -174,7 +174,46 @@ public class Main {
                     System.out.printf("Média de avaliações para %s: %.2f\n", filme.getTitulo(), filme.calcularMedia());
                     break;
                 case 8:
-                    System.out.println("Essa funcionalidade não existe no momento!");
+                    String tentativaUsuario;
+                    String tentativaSenha;
+                    String resultadoMensagem;
+                    Login login = new Login();
+                    scanner.nextLine();
+
+                    System.out.println("Registre o nome do usuário: ");
+                    login.setUsuario(scanner.nextLine());
+
+                    System.out.println("Registre a senha do usuário: ");
+                    login.setSenha(scanner.nextLine());
+
+                    System.out.println("Digite o nome do usuário: ");
+                    tentativaUsuario = scanner.nextLine();
+
+                    System.out.println("Digite a senha do usuário: ");
+                    tentativaSenha = scanner.nextLine();
+
+                    resultadoMensagem = login.validarLogin(tentativaUsuario, tentativaSenha);
+                    System.out.println(resultadoMensagem);
+
+                    System.out.println("Tentar novamente? (Sim/Não)");
+                    confirma = scanner.nextLine();
+                    while (confirma.equalsIgnoreCase("Sim")) {
+                        System.out.println("Digite o nome do usuário: ");
+                        tentativaUsuario = scanner.nextLine();
+
+                        System.out.println("Digite a senha do usuário: ");
+                        tentativaSenha = scanner.nextLine();
+
+                        resultadoMensagem = login.validarLogin(tentativaUsuario, tentativaSenha);
+                        System.out.println(resultadoMensagem);
+
+                        if (resultadoMensagem.equalsIgnoreCase("Login bem-sucedido") ||
+                                resultadoMensagem.equalsIgnoreCase("Quantidade de tentativas excedida. Acesso bloqueado")) {
+                            break;
+                        }
+                        System.out.println("Tentar novamente? (Sim/Não)");
+                        confirma = scanner.nextLine();
+                    }
                     break;
                 case 9:
                     String aluno;

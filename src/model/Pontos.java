@@ -1,10 +1,9 @@
 package model;
 
 public class Pontos {
-    String aluno;
-    int status;
-    int pontos;
-    int soma;
+    private String aluno;
+    private int status;
+    private int soma;
 
     public Pontos(String aluno) {
         this.aluno = aluno;
