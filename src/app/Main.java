@@ -147,7 +147,31 @@ public class Main {
                     }
                     break;
                 case 7:
-                    System.out.println("Essa funcionalidade não existe no momento!");
+                    String titulo;
+                    int avaliacao;
+                    scanner.nextLine();
+
+                    System.out.println("Digite o nome do filme: ");
+                    titulo = scanner.nextLine();
+                    Filme filme = new Filme(titulo);
+
+                    System.out.println("Digite uma nota para o filme: ");
+                    avaliacao = scanner.nextInt();
+                    filme.adicionarAvaliacao(avaliacao);
+
+                    scanner.nextLine();
+                    System.out.println("Deseja adicionar mais uma avaliação? (Sim/Não)");
+                    confirma = scanner.nextLine();
+                    while (confirma.equalsIgnoreCase("Sim")) {
+                        System.out.println("Digite uma nota para o filme: ");
+                        avaliacao = scanner.nextInt();
+                        filme.adicionarAvaliacao(avaliacao);
+
+                        scanner.nextLine();
+                        System.out.println("Deseja adicionar mais uma avaliação? (Sim/Não)");
+                        confirma = scanner.nextLine();
+                    }
+                    System.out.printf("Média de avaliações para %s: %.2f\n", filme.getTitulo(), filme.calcularMedia());
                     break;
                 case 8:
                     System.out.println("Essa funcionalidade não existe no momento!");
